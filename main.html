@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Shark Tooth Machine Learning Model</title>
+    <title>Shark AI Model Builder</title>
     <!-- Include Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -25,19 +25,43 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis@1.5.1/dist/tfjs-vis.umd.min.js"></script> -->
     <link rel="stylesheet" href="fossilML.css" />
   </head>
   <body>
-    <div class="tab-navigation">
-      <button class="tab-button" onclick="openTab('training')">Train</button>
-      <button class="tab-button" onclick="openTab('classification')">
-        Test
-      </button>
-      <button class="tab-button" onclick="openTab('performance')">
-        Evaluate
-      </button>
+    <header>
+  <div class="header-container">
+    
+    <div class="logo-container">
+        <img src="22499 TESI_shark_logo_mark_4color_FNL.png" alt="Your Logo" class="logo">
     </div>
+    <div><h1>Shark AI Model Builder</h1></div>
+    <div class="tab-navigation">
+      <button class="tab-button active" onclick="openTab('training')">
+  <span>Train</span>
+  <i class="fas fa-arrow-right"></i>
+</button>
+
+<button class="tab-button" onclick="openTab('classification')">
+  <span>Test</span>
+  <i class="fas fa-arrow-right"></i>
+</button>
+
+<button class="tab-button" onclick="openTab('performance')">
+  <span>Evaluate</span>
+  <i class="fas fa-arrow-right"></i>
+</button>
+
+    </div>
+  </div>
+</header>
 
     <!-- content for Model Training Tab -->
     <div id="training" class="tab active">
@@ -48,7 +72,7 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">
-                  Enter category and upload training images
+                  For every category, please provide the class and upload the corresponding training images.
                 </h5>
               </div>
             </div>
@@ -56,11 +80,11 @@
               <div class="card-body">
                 <p class="card-text">
                   <strong>File Type:</strong> Please upload files with the
-                  following extensions: .jpg, .png, (.pdf), (.gif).<br />
-                  <strong>File Size:</strong> Each file should not exceed 1MB in
-                  size.<br />
-                  <strong>File Limit:</strong> You can upload a maximum of 100
-                  files at once.
+                  following extensions: .jpg, .png, (.pdf), (.gif).<strong>File Size:</strong> Each file should not exceed 1MB in
+                  size.<strong>File Limit:</strong> You can upload a maximum of 100
+                  files at once.<br />
+                 
+                  
                 </p>
               </div>
             </div>

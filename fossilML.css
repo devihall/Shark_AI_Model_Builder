@@ -63,6 +63,7 @@ input::file-selector-button {
 /* Styles for tab navigation */
 .tab {
   display: none;
+
 }
 .tab.active {
   display: block;
@@ -85,9 +86,10 @@ input::file-selector-button {
   color: #333; /* Choose a text color */
 }
 .tab-navigation button.active {
-  background-color: #c7ede2;
-  border: solid black;
+  background-color: #ffff;
+  border: solid rgba(0, 0, 0, 0.541);
   color: black; /* Change text color for active tab */
+  border-bottom: #f8f8f8;
 }
 .tab-navigation button:hover {
   background-color: #ccc;
@@ -99,8 +101,12 @@ input::file-selector-button {
   font-weight: bold;
 }
 h2 {
-  font-family: "Comic Sans MS", Arial, sans-serif; /* Apply a professional font family */
+  font-family:  Arial, sans-serif; /* Apply a professional font family */
   padding: 5px;
+}
+
+h1{
+  font-family: "Comic Sans MS", Arial, sans-serif; /* Apply a professional font family */
 }
 
 .logo-container {
@@ -115,5 +121,11 @@ h2 {
 
 .tab-navigation {
   display: flex;
-  align-items: center;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between; /* Align items on opposite sides */
+  align-items: center; /* Align items vertically */
+  padding: 10px 20px; /* Adjust padding as needed */
 }
