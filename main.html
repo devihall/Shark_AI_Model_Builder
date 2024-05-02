@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Shark Tooth Machine Learning Model</title>
+    <!-- Include Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+      integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap-grid.min.css"
+      integrity="sha512-JQksK36WdRekVrvdxNyV3B0Q1huqbTkIQNbz1dlcFVgNynEMRl0F8OSqOGdVppLUDIvsOejhr/W5L3G/b3J+8w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"
+      integrity="sha512-i9cEfJwUwViEPFKdC1enz4ZRGBj8YQo6QByFTF92YXHi7waCqyexvRD75S5NVTsSiTv7rKWqG9Y5eFxmRsOn0A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis@1.5.1/dist/tfjs-vis.umd.min.js"></script> -->
+    <link rel="stylesheet" href="fossilML.css" />
+  </head>
+  <body>
+    <div class="tab-navigation">
+      <button class="tab-button" onclick="openTab('training')">Train</button>
+      <button class="tab-button" onclick="openTab('classification')">
+        Test
+      </button>
+      <button class="tab-button" onclick="openTab('performance')">
+        Evaluate
+      </button>
+    </div>
+
+    <!-- content for Model Training Tab -->
+    <div id="training" class="tab active">
+      <h2>Model Training</h2>
+      <div class="container-start">
+        <div class="row">
+          <div class="col-md-auto">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">
+                  Enter category and upload training images
+                </h5>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <p class="card-text">
+                  <strong>File Type:</strong> Please upload files with the
+                  following extensions: .jpg, .png, (.pdf), (.gif).<br />
+                  <strong>File Size:</strong> Each file should not exceed 1MB in
+                  size.<br />
+                  <strong>File Limit:</strong> You can upload a maximum of 100
+                  files at once.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="home" class="tabcontent mt-3">
+        <div id="trainingMessage"></div>
+
+        <!-- 1st row of containers -->
+        <div class="row">
+          <!-- <div class="col border p-3 wrapper"> -->
+          <div class="col-lg-4 col-md-6 col-sm-12 border p-3 wrapper">
+            <!--  -->
+            <div class="container">
+              <label for="textInput"></label>
+              <input type="text" id="textInput" class="form-control" />
+              <button onclick="saveText()" class="custom-save-btn">Save</button>
+            </div>
+
+            <!--  -->
+
+            <!-- <h4 class="category" id="category1" class="d-flex">
+              Galeocerdo cuvier
+            </h4> -->
+            <input
+              type="file"
+              id="file-input1"
+              multiple
+              accept="image/*"
+              onchange="handleFileInput('file-input1')"
+            />
+            <div id="thumbnailContainer1"></div>
+            <div class="p-2 mt-3" style="width: 300px" id="result"></div>
+          </div>
+
+          <!-- <div class="col border p-3 wrapper"> -->
+          <div class="col-lg-4 col-md-6 col-sm-12 border p-3 wrapper">
+            <h4 class="category" id="category2" class="d-flex">
+              Carcharodon carcharias
+            </h4>
+            <input
+              type="file"
+              id="file-input2"
+              multiple
+              accept="image/*"
+              onchange="handleFileInput('file-input2')"
+            />
+            <div id="thumbnailContainer2"></div>
+            <div class="p-2 mt-3" style="width: 300px" id="result"></div>
+          </div>
+
+          <!-- <div class="col border p-3 wrapper"> -->
+          <div class="col-lg-4 col-md-6 col-sm-12 border p-3 wrapper">
+            <h4 class="category" id="category3" class="d-flex">
+              Hemipristis serra
+            </h4>
+            <input
+              type="file"
+              id="file-input3"
+              multiple
+              accept="image/*"
+              onchange="handleFileInput('file-input3')"
+            />
+            <div id="thumbnailContainer3"></div>
+            <div class="p-2 mt-3" style="width: 300px" id="result"></div>
+          </div>
+        </div>
+
+        <!-- 2nd row of containers -->
+        <div class="row">
+          <!-- <div class="col border p-3 wrapper"> -->
+          <div class="col-lg-4 col-md-6 col-sm-12 border p-3 wrapper">
+            <h4 class="category" id="category4" class="d-flex">
+              Carcharhinus leucas
+            </h4>
+            <input
+              type="file"
+              id="file-input4"
+              multiple
+              accept="image/*"
+              onchange="handleFileInput('file-input4')"
+            />
+            <div id="thumbnailContainer4"></div>
+            <div class="p-2 mt-3" style="width: 300px" id="result"></div>
+          </div>
+
+          <!-- <div class="col border p-3 wrapper"> -->
+          <div class="col-lg-4 col-md-6 col-sm-12 border p-3 wrapper">
+            <h4 class="category" id="category5" class="d-flex">
+              Carcharhinus leucas
+            </h4>
+            <input
+              type="file"
+              id="file-input5"
+              multiple
+              accept="image/*"
+              onchange="handleFileInput('file-input5')"
+            />
+            <div id="thumbnailContainer5"></div>
+            <div class="p-2 mt-3" style="width: 300px" id="result"></div>
+          </div>
+
+          <!-- <div class="col border p-3 wrapper"> -->
+          <div class="col-lg-4 col-md-6 col-sm-12 border p-3 wrapper">
+            <h4 class="category" id="category6" class="d-flex">
+              Otodus megalodon
+            </h4>
+            <input
+              type="file"
+              id="file-input6"
+              multiple
+              accept="image/*"
+              onchange="handleFileInput('file-input6')"
+            />
+            <div id="thumbnailContainer6"></div>
+            <div class="p-2 mt-3" style="width: 300px" id="result"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- content for Image Classification Tab -->
+    <div id="classification" class="tab">
+      <h2>Image Classification</h2>
+      <p>Upload an image for classification</p>
+      <div class="justify-content-center" id="classifierMessage"></div>
+
+      <div class="container mt-3 p-2 d-flex justify-content-center">
+        <div class="row">
+          <div class="col border p-3 wrapper">
+            <!-- <h4 class="d-flex justify-content-center">AI Shark Tooth Classification</h4> -->
+            <div class="img pb-3">
+              <img
+                class="img-thumbnail"
+                id="image"
+                src="http://placehold.it/300"
+                width="300px"
+                height="300px"
+              />
+            </div>
+            <div class="buttonList d-flex justify-content-center gap-1">
+              <input
+                type="file"
+                id="choose-file"
+                onchange="readURL(this);"
+                accept="image/*"
+              />
+              <label class="btn btn-primary" for="choose-file"
+                >Choose Image</label
+              >
+              <button class="btn btn-success" id="check" onclick="classify()">
+                Classify
+              </button>
+            </div>
+            <!-- <div class="p-2 mt-3" style="width: 300px;" id="result"></div> -->
+          </div>
+        </div>
+      </div>
+      <div class="p-2 mt-3" style="width: 300px" id="result"></div>
+    </div>
+
+    <!-- content for Model Performance Tab -->
+    <div id="performance" class="tab">
+      <h2>Model Performance & Monitoring</h2>
+      <p>Model performance visualization.</p>
+      <h5>Learning Loss Graph</h5>
+      <div id="demo"></div>
+    </div>
+
+    <!-- jQuery-logic for styling -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap JS logic for styling-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+    <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis"></script>
+    <!-- script.js- logic for tab navigation -->
+    <script src="fossilML.js"></script>
+  </body>
+</html>

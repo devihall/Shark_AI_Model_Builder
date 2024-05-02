@@ -1,0 +1,119 @@
+/* styles for index.html */
+#choose-file {
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+#choose-file {
+  position: absolute;
+  left: -9999px;
+}
+
+.wrapper {
+  background-color: #ffffffb2;
+}
+
+body {
+  background-color: #f8f8f8;
+  padding: 40px 30px; /* Adjust the left padding to move the container more to the left */
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* styles for file input buttons-model training tab */
+input {
+  margin-top: 1rem;
+}
+
+input::file-selector-button {
+  font-weight: bold;
+  color: white;
+  padding: 0.5em;
+  margin-left: 13px;
+  border: thin solid dodgerblue;
+  border-radius: 3px;
+  background: dodgerblue;
+}
+
+.custom-save-btn {
+  font-weight: bold;
+  color: white;
+  padding: 4px 2px 4px 2px;
+  margin-top: 16px;
+  border: thin solid dodgerblue;
+  border-radius: 3px;
+  background: dodgerblue;
+}
+
+#textInput {
+  width: calc(100% - 100px); /* Adjust the width of the input field as needed */
+  margin-right: 10px; /* Add some space between the input field and the button */
+  margin-bottom: 10px;
+}
+
+/* New CSS to create a flex container for the label, input, and button */
+.container {
+  display: flex;
+  align-items: start; /* Align items vertically in the center */
+}
+
+/* Styles for tab navigation */
+.tab {
+  display: none;
+}
+.tab.active {
+  display: block;
+}
+.tab-navigation {
+  display: flex;
+}
+.tab-navigation button {
+  padding: 10px 10px 10px 20px;
+  margin: 10px 0px 10px 0px;
+  border: none;
+  background-color: #bad5f2;
+  cursor: pointer;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  width: 200px;
+  font-family: "Comic Sans MS", Arial, sans-serif; /* Apply a professional font family */
+  font-size: 25px; /* Adjust the font size for better readability */
+  text-align: center; /* Center-align the text */
+  color: #333; /* Choose a text color */
+}
+.tab-navigation button.active {
+  background-color: #c7ede2;
+  border: solid black;
+  color: black; /* Change text color for active tab */
+}
+.tab-navigation button:hover {
+  background-color: #ccc;
+}
+.card{
+  width:fit-content ;
+}
+.card-title {
+  font-weight: bold;
+}
+h2 {
+  font-family: "Comic Sans MS", Arial, sans-serif; /* Apply a professional font family */
+  padding: 5px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  max-width: 60px; /* Adjust size if needed */
+  margin-right: 20px; /* Add some spacing between logo and tabs */
+}
+
+.tab-navigation {
+  display: flex;
+  align-items: center;
+}
