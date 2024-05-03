@@ -1,5 +1,6 @@
 ////////// logic for tabbed navigation
 
+
 function openTab(tabName) {
   // Hide all tabs
   var tabs = document.getElementsByClassName("tab");
@@ -255,11 +256,11 @@ function classify() {
 
       let num = results[0].confidence * 100;
       element.html(
-        "<h5>" +
-          results[0].label +
-          "</h5> Confidence: <b>" +
+        "<h5> Shark AI classifier is " +
           num.toFixed(2) +
-          "%</b>"
+          "% sure your test image belongs to " +
+          results[0].label +
+          "</h5>"
       );
     }
   }
