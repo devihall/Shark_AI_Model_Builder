@@ -5,6 +5,15 @@ const MOBILE_NET_INPUT_WIDTH = 224;
 const MOBILE_NET_INPUT_HEIGHT = 224;
 const STOP_DATA_GATHER = -1;
 const CLASS_NAMES = [];
+const PREDICT_BUTTON = document.getElementById("predictButton");
+const PREDICT_FILE_INPUT = document.getElementById("predictFileInput");
+const PREDICTIONS_DIV = document.getElementById("predictions");
+
+// PREDICT_BUTTON.addEventListener("click", predictImages);
+PREDICT_BUTTON.addEventListener("click", function () {
+  PREDICT_FILE_INPUT.click(); // Trigger file input dialog
+  predictImages(); // Call predictImages function
+});
 
 TRAIN_BUTTON.addEventListener("click", trainAndPredict);
 RESET_BUTTON.addEventListener("click", reset);
@@ -21,6 +30,7 @@ let trainingDataInputs = [];
 let trainingDataOutputs = [];
 let examplesCount = [];
 let predict = false;
+let predictionArray;
 
 async function loadMobileNetFeatureModel() {
   const URL =
@@ -91,6 +101,7 @@ document
   });
 
 async function loadImageAsTensor(file) {
+    console.log("in loadImagetensor function")
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = (event) => {
@@ -137,12 +148,71 @@ async function trainAndPredict() {
   inputsAsTensor.dispose();
 
   predict = true;
-  predictLoop();
+//   predictLoop();
 }
 
 function logProgress(epoch, logs) {
   console.log("Data for epoch " + epoch, logs);
 }
+
+async function predictImages() {
+    console.log("predict clicked")
+  const files = PREDICT_FILE_INPUT.files;
+  console.log("files", files)
+  if (files.length > 0) {
+    for (const file of files) {
+      const imageTensor = await loadImageAsTensor(file);
+      const prediction = await makePrediction(imageTensor);
+    //   displayPrediction(prediction);
+    }
+  }
+}
+
+async function makePrediction(imageTensor) {
+  const imageFeatures = await calculateFeatures(imageTensor);
+  const predictions = model.predict(imageFeatures.reshape([1, 1024]));
+
+  // 1. Find the Highest Prediction
+  const highestIndex = predictions.argMax().arraySync();
+
+  // 2. Converting Predictions to Array
+//   const predictionArray = predictions.arraySync();
+predictionArray = predictions.arraySync();
+
+  // Log the predictions
+  console.log("Predictions:", predictionArray);
+
+//   return { highestIndex, predictionArray };
+// const classNames = ["Class 1", "Class 2"]; // Modify this based on your class names
+let result = "";
+// const highestProbability = predictionArray[highestIndex];
+
+// result += `${classNames[highestIndex]}: ${highestProbability.toFixed(4)}<br>`;
+// PREDICTIONS_DIV.innerHTML += result;
+  PREDICTIONS_DIV.innerText =
+    "Prediction: " +
+    CLASS_NAMES[highestIndex] +
+    " with " +
+    Math.floor(predictionArray[highestIndex] * 100) +
+    "% confidence";
+}
+
+
+// async function displayPrediction(prediction) {
+    
+//   const classNames = ["Class 1", "Class 2"]; // Modify this based on your class names
+//   let result = "";
+
+//   // Use the highest index to get the class name and probability
+//   const highestIndex = prediction.highestIndex;
+//   const highestProbability = prediction.predictionArray[highestIndex];
+
+//   result += `${classNames[highestIndex]}: ${highestProbability.toFixed(4)}<br>`;
+//   PREDICTIONS_DIV.innerHTML += result;
+  
+// }
+
+
 
 function predictLoop() {
   if (predict) {

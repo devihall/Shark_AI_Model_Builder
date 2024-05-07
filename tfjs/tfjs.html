@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/tfjs/tfjs.css">
   </head>  
   <body>
-    <h1>using Transfer Learning with MobileNet v3 in TensorFlow.js using saved graph model from TFHub.</h1>
+    <h1>Using Transfer Learning with MobileNet v3 in TensorFlow.js using saved graph model from TFHub.</h1>
     
     <p id="status">Awaiting TF.js load</p>
     
@@ -18,6 +18,12 @@
     <button class="dataCollector" data-1hot="1" data-name="Class 2">Select Images for Class 2</button>
     <button id="train">Train &amp; Predict!</button>
     <button id="reset">Reset</button>
+
+    <h2>Predict</h2>
+    <input type="file" id="predictFileInput" accept="image/*" multiple style="display: none;">
+    <button id="predictButton">Predict</button>
+    <div id="predictions"></div>
+
 
     <ol>
       <li>First click "Select Images for Class 1" and choose images of one class.</li>
