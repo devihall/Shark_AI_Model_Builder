@@ -1,6 +1,30 @@
-////////// logic for tabbed navigation
+// JavaScript logic for survey completion and tab navigation
 
+// Add an event listener to the iframe for form submission
+document.getElementById("survey-iframe").addEventListener("load", function () {
+  // Assuming the form submission will redirect to a specific URL
+  let surveyIframe = document.getElementById("survey-iframe");
+  surveyIframe.contentWindow.addEventListener("beforeunload", function () {
+    // Enable the Evaluate tab
+    enableEvaluateTab();
+  });
+});
 
+// Function to enable the Evaluate tab
+function enableEvaluateTab() {
+  let evaluateTabButton = document.querySelector(".evaluate-tab");
+  evaluateTabButton.disabled = false;
+  evaluateTabButton.classList.add("active");
+}
+
+// Function to disable the Evaluate tab
+function disableEvaluateTab() {
+  let evaluateTabButton = document.querySelector(".evaluate-tab");
+  evaluateTabButton.disabled = true;
+  evaluateTabButton.classList.remove("active");
+}
+
+// Function to open tabs
 function openTab(tabName) {
   // Hide all tabs
   var tabs = document.getElementsByClassName("tab");
@@ -53,7 +77,7 @@ function modelReady() {
 ///////
 function saveText() {
   // Get the value from the input field
-  inputText = document.getElementById("textInput").value;
+  // inputText = document.getElementById("textInput").value;
 
   // Do something with the inputText variable
   console.log("Input Text:", inputText);
@@ -62,122 +86,82 @@ function saveText() {
 //////
 
 // Function to handle training image files input
-async function handleFileInput(inputId) {
-  console.log("inputText", inputText);
+// Function to handle training image files input
+async function handleFileInput(inputId, categoryId, thumbnailContainerId) {
   const input = document.getElementById(inputId);
-  console.log("input", input);
-  const promises = [];
-  const thumbnailContainer = document.getElementById(
-    "thumbnailContainer" + inputId[inputId.length - 1]
-  );
-  thumbnailContainer.innerHTML = ""; // Clear previous thumbnails
+  const categoryInput = document.getElementById(categoryId);
+  const thumbnailContainer = document.getElementById(thumbnailContainerId);
 
-  // Retrieve the corresponding h4 element's text content using its id
-
-  const h4TextContent = inputText;
-  // const h4TextContent = document.getElementById(
-  //   "category" + inputId[inputId.length - 1]
-  // ).textContent;
-  console.log("<<<h4TextContent>>>", h4TextContent);
+  if (!input || !categoryInput || !thumbnailContainer) {
+    console.error("Input element not found");
+    return;
+  }
 
   const numFiles = input.files.length;
   if (numFiles < 2) {
     // Show bootstrap alert
-    const alertElement = document.createElement("div");
-    // Show bootstrap alert
-    alertElement.classList.add("alert", "alert-danger");
-    alertElement.textContent = "Please select two or more files";
-
-    // Append the alert to the trainingMessage div
-    const trainingMessageDiv = document.getElementById("trainingMessage");
-    trainingMessageDiv.appendChild(alertElement);
-
-    // Remove the alert after a delay
-    setTimeout(() => {
-      alertElement.remove();
-    }, 5000); // Remove after 5 seconds (adjust as needed)
-    return; // Exit the function
+    // ...
+    return;
   }
 
-  // Continue with handling files if more than one file is selected
+  const promises = [];
+  let currentRow;
+
   for (let i = 0; i < input.files.length; i++) {
-    console.log("input.files", input.files);
-
     const file = input.files[i];
-
-    // Create a new image element
     const img = document.createElement("img");
-    img.width = 100; // Set width for display purposes
-    img.height = 100; // Set height for display purposes
-
+    img.width = 100;
+    img.height = 100;
     img.src = URL.createObjectURL(file);
-    console.log("FILE", file);
 
     const thumbnailDiv = document.createElement("div");
-    thumbnailDiv.classList.add("thumbnail");
+    thumbnailDiv.classList.add(
+      "col-lg-4",
+      "col-md-4",
+      "col-sm-12",
+      "border",
+      "p-3",
+      "wrapper"
+    );
     thumbnailDiv.appendChild(img);
-    thumbnailContainer.appendChild(thumbnailDiv);
 
-    // add uploaded images to myimages array
+    // Check if a new row needs to be created
+    if (i % 3 === 0) {
+      console.log("new row function");
+      currentRow = document.createElement("div");
+      currentRow.classList.add("row");
+      thumbnailContainer.appendChild(currentRow);
+    }
+
+    currentRow.appendChild(thumbnailDiv);
+
     myimages.push(img);
 
-    // Use the h4TextContent as the category
-    let category = h4TextContent.trim();
-    console.log("category", category);
-
-    console.log("IMG", img);
+    let category = categoryInput.value;
 
     promises.push(myClassifier.addImage(img, category));
-    console.log(
-      "myClassifier.addImage(img, category)",
-      myClassifier.addImage(img, category)
-    );
   }
+
   await Promise.all(promises);
 
-  //////////////// logic for model training
-  myClassifier
-    .train(whileTraining)
-    .then((results) => {
-      const trainingMessageContainer =
-        document.getElementById("trainingMessage");
-      trainingMessageContainer.innerHTML = `
-                <div class="alert alert-success" role="alert">
-                    Training complete! Check the Performance tab for how the model did.
-                </div> `;
-
-      console.log("Training results:", results);
-      const epoch = results.epoch;
-      console.log("Training epoch 1:", epoch);
-      const loss = results.history.loss;
-      console.log("Training loss:", loss);
-
-      //////////////// logic for model visualization
-      const lossDataForVisualization = epoch.map((epochValue, index) => ({
-        x: epochValue, // Epoch becomes x value
-        y: loss[index], // Loss becomes y value
-      }));
-
-      // data structure for tfvis.render.linechart
-      const data = {
-        values: [lossDataForVisualization],
-        series: ["Loss vs Epoch"],
-      };
-
-      // Get the container HTMLElement with id "demo"
-      const container = document.getElementById("demo");
-
-      // Additional options for labeling x and y axes
-      const options = {
-        xLabel: "Epoch", // Label for x-axis
-        yLabel: "Loss", // Label for y-axis
-      };
-
-      // Render the line chart
-      tfvis.render.linechart(container, data, options);
-    })
-    .catch((error) => {
-      console.error("Error during training:", error);
+  // Continue with training logic...
+}
+async function training() {
+  console.log("model is training");
+  document
+    .getElementById("startTrainingBtn")
+    .addEventListener("click", async function () {
+      alert("Training started!");
+      // Add your custom logic here
+      console.log("Start Training button clicked");
+      // You can also trigger other actions, such as starting a training process, making an API call, etc.
+      //  myClassifier.train(whileTraining);
+      await myClassifier.train((lossValue) => {
+        console.log("Loss is", lossValue);
+        if (lossValue == null) {
+          whileTraining();
+        }
+      });
     });
 }
 
@@ -188,7 +172,7 @@ async function whileTraining() {
   const trainingMessageContainer = document.getElementById("trainingMessage");
   trainingMessageContainer.innerHTML = `
         <div class="alert alert-info" role="alert">
-            Model is training...
+            Model is done training. Check the Evaluate tabe for model performance.
         </div>`;
 }
 

@@ -129,3 +129,28 @@ h1{
   align-items: center; /* Align items vertically */
   padding: 10px 20px; /* Adjust padding as needed */
 }
+
+/* model upload */
+.model-upload {
+  display: inline-block;
+  margin: 29px;
+  padding: 10px 12px ;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  border: 1px solid #007bff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.model-upload:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+#upload-model-files-button{
+  /* padding-right: 20px; */
+}
+/* .container + .container {
+            margin: 20px; /* Adjust the value as needed */
+        /* } */ 

@@ -37,59 +37,117 @@
   </head>
   <body>
     <header>
-  <div class="header-container">
-    
-    <div class="logo-container">
-        <img src="22499 TESI_shark_logo_mark_4color_FNL.png" alt="Your Logo" class="logo">
-    </div>
-    <div><h1>Shark AI Model Builder</h1></div>
-    <div class="tab-navigation">
-      <button class="tab-button active" onclick="openTab('training')">
-  <span>Train</span>
-  <i class="fas fa-arrow-right"></i>
-</button>
+      <div class="header-container">
+        <div class="logo-container">
+          <img
+            src="22499 TESI_shark_logo_mark_4color_FNL.png"
+            alt="Your Logo"
+            class="logo"
+          />
+        </div>
+        <div><h1>Shark AI Model Builder</h1></div>
+        <div class="tab-navigation">
+          <button class="tab-button active" onclick="openTab('training')">
+            <span>Train</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
 
-<button class="tab-button" onclick="openTab('classification')">
-  <span>Test</span>
-  <i class="fas fa-arrow-right"></i>
-</button>
+          <button class="tab-button" onclick="openTab('classification')">
+            <span>Test</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
 
-<button class="tab-button" onclick="openTab('performance')">
-  <span>Evaluate</span>
-  <i class="fas fa-arrow-right"></i>
-</button>
-
-    </div>
-  </div>
-</header>
+          <button class="tab-button" onclick="openTab('performance')">
+            <span>Evaluate</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </header>
 
     <!-- content for Model Training Tab -->
     <div id="training" class="tab active">
-      <h2>Model Training</h2>
+      
       <div class="container-start">
-        <div class="row">
-          <div class="col-md-auto">
-            <div class="card">
+        <!-- <div class="row"> -->
+          <!-- <div class="col-md-auto"> -->
+
+  <div class="row p-3 mt-3">
+    <div class="col-lg-3 col-md-4 col-sm-4"><h2 class="pt-4">Model Training</h2></div>
+    
+  <div class="col-lg-3 col-md-4 col-sm-4">
+  <div class="card" id="upload-model-files-button">
+  <input
+    type="file"
+    id="file-input4"
+    multiple
+    accept="image/*"
+    onchange="handleFileInput('file-input4', 'category4', 'thumbnailContainer4')"
+    style="display: none;"
+  />
+  <label for="file-input4" class="model-upload">
+    Upload Model Files
+  </label>
+</div>
+</div>
+
+              
+<div class="col-lg-4 col-md-4 col-sm-4">
+  <div class="card" id="upload-model-files-button">
+  <input
+    type="file"
+    id="file-input4"
+    multiple
+    accept="image/*"
+    onchange="handleFileInput('file-input4', 'category4', 'thumbnailContainer4')"
+    style="display: none;"
+  />
+  <label for="file-input4" class="model-upload">
+    Download Model Files
+  </label>
+</div>
+</div>
+</div>
+
+<div class="row">
+  <div class="col-lg-10 col-md-6 col-sm-12 border p-3 wrapper">
+                <div class="card">
               <div class="card-body">
                 <h5 class="card-title">
-                  For every category, please provide the class and upload the corresponding training images.
+                  For every category, please provide the class and upload the
+                  corresponding training images.
                 </h5>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                <p class="card-text">
-                  <strong>File Type:</strong> Please upload files with the
-                  following extensions: .jpg, .png, (.pdf), (.gif).<strong>File Size:</strong> Each file should not exceed 1MB in
-                  size.<strong>File Limit:</strong> You can upload a maximum of 100
-                  files at once.<br />
-                 
-                  
-                </p>
               </div>
             </div>
           </div>
         </div>
+      
+          
+
+          <div class="row">
+            <div class="col-lg-10 col-md-6 col-sm-12 border p-3 wrapper">
+              <div class="card">
+              <div class="card-body">
+                <p class="card-text">
+                  <strong>File Type:</strong> Please upload files with the
+                  following extensions: .jpg, .png, (.pdf), (.gif).<strong
+                    >File Size:</strong
+                  >
+                  Each file should not exceed 1MB in size.<strong
+                    >File Limit:</strong
+                  >
+                  You can upload a maximum of 100 files at once.<br />
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          </div>
+            
+            
+          
+          <!-- </div> -->
+        <!-- </div> -->
       </div>
 
       <div id="home" class="tabcontent mt-3">
@@ -97,138 +155,112 @@
 
         <!-- 1st row of containers -->
         <div class="row">
-          <!-- <div class="col border p-3 wrapper"> -->
+          <!-- Input container 1 -->
           <div class="col-lg-4 col-md-6 col-sm-12 border p-3 wrapper">
-            <!--  -->
-            <div class="container">
-              <label for="textInput"></label>
-              <input type="text" id="textInput" class="form-control" />
-              <button onclick="saveText()" class="custom-save-btn">Save</button>
+            <div class="category-container d-flex">
+              <p>Enter Category</p>
+              <input
+                type="text"
+                class="category-input form-control"
+                id="category1"
+              />
             </div>
-
-            <!--  -->
-
-            <!-- <h4 class="category" id="category1" class="d-flex">
-              Galeocerdo cuvier
-            </h4> -->
             <input
               type="file"
               id="file-input1"
               multiple
               accept="image/*"
-              onchange="handleFileInput('file-input1')"
+              onchange="handleFileInput('file-input1', 'category1', 'thumbnailContainer1')"
             />
-            <div id="thumbnailContainer1"></div>
-            <div class="p-2 mt-3" style="width: 300px" id="result"></div>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-auto">
+                  <div id="thumbnailContainer1"></div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <!-- <div class="col border p-3 wrapper"> -->
+          <!-- Input container 2 -->
           <div class="col-lg-4 col-md-6 col-sm-12 border p-3 wrapper">
-            <div class="container">
-              <label for="textInput"></label>
-              <input type="text" id="textInput" class="form-control" />
-              <button onclick="saveText()" class="custom-save-btn">Save</button>
+            <div class="category-container d-flex">
+              <p>Enter Category</p>
+              <input
+                type="text"
+                class="category-input form-control"
+                id="category2"
+              />
             </div>
-            <!-- <h4 class="category" id="category2" class="d-flex">
-              Carcharodon carcharias
-            </h4> -->
             <input
               type="file"
               id="file-input2"
               multiple
               accept="image/*"
-              onchange="handleFileInput('file-input2')"
+              onchange="handleFileInput('file-input2', 'category2', 'thumbnailContainer2')"
             />
-            <div id="thumbnailContainer2"></div>
-            <div class="p-2 mt-3" style="width: 300px" id="result"></div>
+            <div id="thumbnailContainer2" class="container mt-3"></div>
           </div>
-
-          <!-- <div class="col border p-3 wrapper"> -->
+          
+<!-- start training button -->
           <div class="col-lg-4 col-md-6 col-sm-12 border p-3 wrapper">
-            <div class="container">
-              <label for="textInput"></label>
-              <input type="text" id="textInput" class="form-control" />
-              <button onclick="saveText()" class="custom-save-btn">Save</button>
+            <div class="container mt-5">
+              <button id="startTrainingBtn" type="button"  class="btn btn-primary btn-lg" onclick="training()"  > Start Training</button>
             </div>
-            <!-- <h4 class="category" id="category3" class="d-flex">
-              Hemipristis serra
-            </h4> -->
-            <input
-              type="file"
-              id="file-input3"
-              multiple
-              accept="image/*"
-              onchange="handleFileInput('file-input3')"
-            />
-            <div id="thumbnailContainer3"></div>
-            <div class="p-2 mt-3" style="width: 300px" id="result"></div>
+          </div>
+          
+          
           </div>
         </div>
 
         <!-- 2nd row of containers -->
         <div class="row">
-          <!-- <div class="col border p-3 wrapper"> -->
+          <!-- Input container 3 -->
           <div class="col-lg-4 col-md-6 col-sm-12 border p-3 wrapper">
-            <div class="container">
-              <label for="textInput"></label>
-              <input type="text" id="textInput" class="form-control" />
-              <button onclick="saveText()" class="custom-save-btn">Save</button>
+            <div class="category-container d-flex">
+              <p>Enter Category</p>
+              <input
+                type="text"
+                class="category-input form-control"
+                id="category3"
+              />
             </div>
-            <!-- <h4 class="category" id="category4" class="d-flex">
-              Carcharhinus leucas
-            </h4> -->
+            <input
+              type="file"
+              id="file-input3"
+              multiple
+              accept="image/*"
+              onchange="handleFileInput('file-input3', 'category3', 'thumbnailContainer3')"
+            />
+            <div id="thumbnailContainer3" class="container mt-3"></div>
+          </div>
+
+          <!-- Input container 4 -->
+          <div class="col-lg-4 col-md-6 col-sm-12 border p-3 wrapper">
+            <div class="category-container d-flex">
+              <p>Enter Category</p>
+              <input
+                type="text"
+                class="category-input form-control"
+                id="category4"
+              />
+            </div>
             <input
               type="file"
               id="file-input4"
               multiple
               accept="image/*"
-              onchange="handleFileInput('file-input4')"
+              onchange="handleFileInput('file-input4', 'category4', 'thumbnailContainer4')"
             />
-            <div id="thumbnailContainer4"></div>
-            <div class="p-2 mt-3" style="width: 300px" id="result"></div>
+            <div id="thumbnailContainer4" class="container mt-3"></div>
           </div>
 
-          <!-- <div class="col border p-3 wrapper"> -->
+
           <div class="col-lg-4 col-md-6 col-sm-12 border p-3 wrapper">
-            <div class="container">
-              <label for="textInput"></label>
-              <input type="text" id="textInput" class="form-control" />
-              <button onclick="saveText()" class="custom-save-btn">Save</button>
-            </div>
-            <!-- <h4 class="category" id="category5" class="d-flex">
-              Carcharhinus leucas
-            </h4> -->
-            <input
-              type="file"
-              id="file-input5"
-              multiple
-              accept="image/*"
-              onchange="handleFileInput('file-input5')"
-            />
-            <div id="thumbnailContainer5"></div>
-            <div class="p-2 mt-3" style="width: 300px" id="result"></div>
+            <div id="survey-container" style="display: none; margin-top: 20px;">
+          <iframe id="survey-iframe" src="YOUR_GOOGLE_FORM_URL_HERE" style="width: 100%; height: 500px; border: none;"></iframe>
+        </div>
           </div>
 
-          <!-- <div class="col border p-3 wrapper"> -->
-          <div class="col-lg-4 col-md-6 col-sm-12 border p-3 wrapper">
-            <div class="container">
-              <label for="textInput"></label>
-              <input type="text" id="textInput" class="form-control" />
-              <button onclick="saveText()" class="custom-save-btn">Save</button>
-            </div>
-            <!-- <h4 class="category" id="category6" class="d-flex">
-              Otodus megalodon
-            </h4> -->
-            <input
-              type="file"
-              id="file-input6"
-              multiple
-              accept="image/*"
-              onchange="handleFileInput('file-input6')"
-            />
-            <div id="thumbnailContainer6"></div>
-            <div class="p-2 mt-3" style="width: 300px" id="result"></div>
-          </div>
         </div>
       </div>
     </div>
