@@ -1,28 +1,28 @@
 // JavaScript logic for survey completion and tab navigation
 
 // Add an event listener to the iframe for form submission
-document.getElementById("survey-iframe").addEventListener("load", function () {
-  // Assuming the form submission will redirect to a specific URL
-  let surveyIframe = document.getElementById("survey-iframe");
-  surveyIframe.contentWindow.addEventListener("beforeunload", function () {
-    // Enable the Evaluate tab
-    enableEvaluateTab();
-  });
-});
+// document.getElementById("survey-iframe").addEventListener("load", function () {
+//   // Assuming the form submission will redirect to a specific URL
+//   let surveyIframe = document.getElementById("survey-iframe");
+//   surveyIframe.contentWindow.addEventListener("beforeunload", function () {
+//     // Enable the Evaluate tab
+//     enableEvaluateTab();
+//   });
+// });
 
 // Function to enable the Evaluate tab
-function enableEvaluateTab() {
-  let evaluateTabButton = document.querySelector(".evaluate-tab");
-  evaluateTabButton.disabled = false;
-  evaluateTabButton.classList.add("active");
-}
+// function enableEvaluateTab() {
+//   let evaluateTabButton = document.querySelector(".evaluate-tab");
+//   evaluateTabButton.disabled = false;
+//   evaluateTabButton.classList.add("active");
+// }
 
 // Function to disable the Evaluate tab
-function disableEvaluateTab() {
-  let evaluateTabButton = document.querySelector(".evaluate-tab");
-  evaluateTabButton.disabled = true;
-  evaluateTabButton.classList.remove("active");
-}
+// function disableEvaluateTab() {
+//   let evaluateTabButton = document.querySelector(".evaluate-tab");
+//   evaluateTabButton.disabled = true;
+//   evaluateTabButton.classList.remove("active");
+// }
 
 // Function to open tabs
 function openTab(tabName) {
@@ -97,13 +97,6 @@ async function handleFileInput(inputId, categoryId, thumbnailContainerId) {
     return;
   }
 
-  const numFiles = input.files.length;
-  if (numFiles < 2) {
-    // Show bootstrap alert
-    // ...
-    return;
-  }
-
   const promises = [];
   let currentRow;
 
@@ -125,33 +118,48 @@ async function handleFileInput(inputId, categoryId, thumbnailContainerId) {
     );
     thumbnailDiv.appendChild(img);
 
-    // Check if a new row needs to be created
     if (i % 3 === 0) {
-      console.log("new row function");
       currentRow = document.createElement("div");
       currentRow.classList.add("row");
       thumbnailContainer.appendChild(currentRow);
     }
 
     currentRow.appendChild(thumbnailDiv);
-
     myimages.push(img);
 
     let category = categoryInput.value;
-
     promises.push(myClassifier.addImage(img, category));
   }
 
   await Promise.all(promises);
-
-  // Continue with training logic...
 }
+
+
+
 async function training() {
   console.log("model is training");
   document
     .getElementById("startTrainingBtn")
     .addEventListener("click", async function () {
-      alert("Training started!");
+      // document.getElementById("survey-container").style.display = "block";
+      // function showIframe() {
+        console.log("show iframe function")
+        // Create iframe element
+        var iframe = document.createElement("iframe");
+
+        // Set attributes
+        iframe.src = "https://example.com"; // Set the source URL of the iframe
+        iframe.width = "400"; // Set width
+        iframe.height = "200"; // Set height
+        iframe.frameBorder = "0"; // Remove border
+
+        // Append iframe to container
+        var container = document.getElementById("iframeContainer");
+        container.appendChild(iframe);
+      // }
+
+
+      // alert("Training started!");
       // Add your custom logic here
       console.log("Start Training button clicked");
       // You can also trigger other actions, such as starting a training process, making an API call, etc.

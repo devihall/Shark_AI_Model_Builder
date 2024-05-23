@@ -72,62 +72,70 @@
         <!-- <div class="row"> -->
           <!-- <div class="col-md-auto"> -->
 
-  <div class="row p-3 mt-3">
-    <div class="col-lg-3 col-md-4 col-sm-4"><h2 class="pt-4">Model Training</h2></div>
-    
-  <div class="col-lg-3 col-md-4 col-sm-4">
-  <div class="card" id="upload-model-files-button">
-  <input
-    type="file"
-    id="file-input4"
-    multiple
-    accept="image/*"
-    onchange="handleFileInput('file-input4', 'category4', 'thumbnailContainer4')"
-    style="display: none;"
-  />
-  <label for="file-input4" class="model-upload">
-    Upload Model Files
-  </label>
-</div>
+<!-- title and button row -->
+  <div class="row p-2 mt-3">
+  <div class="col-lg-2 col-md-4 col-sm-4">
+    <h2 class="pt-3">Model Training</h2>
+  </div>
+
+  <div class="col-lg-5 col-md-4 col-sm-12 border p-3 wrapper">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">
+            Upload model files or dowload model files after training
+        </h5>
+      </div>
+    </div>
+  </div>
+
+  
+
+
+  <div class="col-lg-auto col-md-3 col-sm-4 upload-buttons" >
+    <div class="card" >
+      <input type="file" id="file-input4" multiple accept="image/*" onchange="handleFileInput('file-input4', 'category4', 'thumbnailContainer4')" style="display: none;" />
+      <label for="file-input4" class="model-upload">Upload Model Files</label>
+    </div>
+  </div>
+
+  <div class="col-lg-auto col-md-1 col-sm-2 upload-buttons">
+    <div class="card">
+      <input type="file" id="file-input5" multiple accept="image/*" onchange="handleFileInput('file-input5', 'category5', 'thumbnailContainer5')" style="display: none;" />
+      <label for="file-input5" class="model-upload">Download Model Files</label>
+    </div>
+  </div>
 </div>
 
-              
-<div class="col-lg-4 col-md-4 col-sm-4">
-  <div class="card" id="upload-model-files-button">
-  <input
-    type="file"
-    id="file-input4"
-    multiple
-    accept="image/*"
-    onchange="handleFileInput('file-input4', 'category4', 'thumbnailContainer4')"
-    style="display: none;"
-  />
-  <label for="file-input4" class="model-upload">
-    Download Model Files
-  </label>
-</div>
-</div>
-</div>
 
+<!-- Instructions row -->
 <div class="row">
-  <div class="col-lg-10 col-md-6 col-sm-12 border p-3 wrapper">
-                <div class="card">
+  <div class="col-lg-9 col-md-6 col-sm-12 border p-3 wrapper">
+                <!-- <div class="card">
               <div class="card-body">
                 <h5 class="card-title">
                   For every category, please provide the class and upload the
                   corresponding training images.
                 </h5>
               </div>
-            </div>
-          </div>
+            </div> -->
+
+
+          <!-- </div>
+
         </div>
       
           
 
           <div class="row">
-            <div class="col-lg-10 col-md-6 col-sm-12 border p-3 wrapper">
+            <div class="col-lg-10 col-md-6 col-sm-12 border p-3 wrapper"> -->
+
+
               <div class="card">
               <div class="card-body">
+                <h5 class="card-title">
+                  For every category, please provide the class and upload the
+                  corresponding training images.
+                </h5>
                 <p class="card-text">
                   <strong>File Type:</strong> Please upload files with the
                   following extensions: .jpg, .png, (.pdf), (.gif).<strong
@@ -141,22 +149,32 @@
               </div>
             </div>
           </div>
+
+           <!-- start training button -->
+          <div class="col">
+            <div class="container m-5">
+              <button id="startTrainingBtn" type="button"  class="btn btn-primary btn-lg" onclick="training()"  > Start Training</button>
+            </div>
+
+            
+          </div>
           
           </div>
             
-            
-          
-          <!-- </div> -->
         <!-- </div> -->
       </div>
 
+      <!-- training message -->
       <div id="home" class="tabcontent mt-3">
         <div id="trainingMessage"></div>
 
-        <!-- 1st row of containers -->
+        <div class="row">
+          <!-- <div class="col-lg-8 col-md-6 col-sm-12 border p-3 wrapper"> -->
+
+ <!-- 1st row of containers -->
         <div class="row">
           <!-- Input container 1 -->
-          <div class="col-lg-4 col-md-6 col-sm-12 border p-3 wrapper">
+          <div class="col-lg-3 col-md-6 col-sm-12 border p-3 wrapper">
             <div class="category-container d-flex">
               <p>Enter Category</p>
               <input
@@ -182,7 +200,7 @@
           </div>
 
           <!-- Input container 2 -->
-          <div class="col-lg-4 col-md-6 col-sm-12 border p-3 wrapper">
+          <div class="col-lg-3 col-md-6 col-sm-12 border p-3 wrapper">
             <div class="category-container d-flex">
               <p>Enter Category</p>
               <input
@@ -201,21 +219,7 @@
             <div id="thumbnailContainer2" class="container mt-3"></div>
           </div>
           
-<!-- start training button -->
-          <div class="col-lg-4 col-md-6 col-sm-12 border p-3 wrapper">
-            <div class="container mt-5">
-              <button id="startTrainingBtn" type="button"  class="btn btn-primary btn-lg" onclick="training()"  > Start Training</button>
-            </div>
-          </div>
-          
-          
-          </div>
-        </div>
-
-        <!-- 2nd row of containers -->
-        <div class="row">
-          <!-- Input container 3 -->
-          <div class="col-lg-4 col-md-6 col-sm-12 border p-3 wrapper">
+          <div class="col-lg-3 col-md-6 col-sm-12 border p-3 wrapper">
             <div class="category-container d-flex">
               <p>Enter Category</p>
               <input
@@ -234,8 +238,7 @@
             <div id="thumbnailContainer3" class="container mt-3"></div>
           </div>
 
-          <!-- Input container 4 -->
-          <div class="col-lg-4 col-md-6 col-sm-12 border p-3 wrapper">
+          <div class="col-lg-3 col-md-6 col-sm-12 border p-3 wrapper">
             <div class="category-container d-flex">
               <p>Enter Category</p>
               <input
@@ -254,12 +257,72 @@
             <div id="thumbnailContainer4" class="container mt-3"></div>
           </div>
 
-
-          <div class="col-lg-4 col-md-6 col-sm-12 border p-3 wrapper">
-            <div id="survey-container" style="display: none; margin-top: 20px;">
-          <iframe id="survey-iframe" src="YOUR_GOOGLE_FORM_URL_HERE" style="width: 100%; height: 500px; border: none;"></iframe>
         </div>
+        <!-- 2nd row of containers -->
+        <div class="row">
+          <!-- Input container 3 -->
+          <!-- <div class="col-lg-4 col-md-6 col-sm-12 border p-3 wrapper">
+            <div class="category-container d-flex">
+              <p>Enter Category</p>
+              <input
+                type="text"
+                class="category-input form-control"
+                id="category3"
+              />
+            </div>
+            <input
+              type="file"
+              id="file-input3"
+              multiple
+              accept="image/*"
+              onchange="handleFileInput('file-input3', 'category3', 'thumbnailContainer3')"
+            />
+            <div id="thumbnailContainer3" class="container mt-3"></div>
+          </div> -->
+
+          <!-- Input container 4 -->
+          <!-- <div class="col-lg-4 col-md-6 col-sm-12 border p-3 wrapper">
+            <div class="category-container d-flex">
+              <p>Enter Category</p>
+              <input
+                type="text"
+                class="category-input form-control"
+                id="category4"
+              />
+            </div>
+            <input
+              type="file"
+              id="file-input4"
+              multiple
+              accept="image/*"
+              onchange="handleFileInput('file-input4', 'category4', 'thumbnailContainer4')"
+            />
+            <div id="thumbnailContainer4" class="container mt-3"></div>
+          </div> -->
+
+
+          <div class="col-lg-12 col-md-6 col-sm-12 border p-3 wrapper">
+
+            <!-- google form iframe container -->
+            <div id="iframeContainer"></div>
           </div>
+          
+
+          <!-- <div class="col-lg-4 col-md-6 col-sm-12 border p-3 wrapper"> -->
+            <!-- <div id="survey-container"  margin-top: 20px;">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeqTlGbIvw7StzDiFF1ZXIVxIBNQiocC5EM8MgVV6Rvismlow/viewform?embedded=true" width="640" height="453" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>        
+            </div> -->
+                
+
+          </div>
+
+          <!-- </div> -->
+        </div>
+
+       
+        </div>
+
+        
 
         </div>
       </div>

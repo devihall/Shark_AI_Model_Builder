@@ -107,6 +107,7 @@ h2 {
 
 h1{
   font-family: "Comic Sans MS", Arial, sans-serif; /* Apply a professional font family */
+  padding-right: 20px;
 }
 
 .logo-container {
@@ -121,20 +122,24 @@ h1{
 
 .tab-navigation {
   display: flex;
+  padding-left: 130px;
 }
 
 .header-container {
   display: flex;
-  justify-content: space-between; /* Align items on opposite sides */
+  justify-content: flex-start; /* Align items on opposite sides */
   align-items: center; /* Align items vertically */
   padding: 10px 20px; /* Adjust padding as needed */
 }
+.upload-buttons {
+  margin-top: 0 !important; /* Override the inline margin-top */
+  padding: 0 10px; /* Adjust padding as needed */
+}
 
-/* model upload */
 .model-upload {
-  display: inline-block;
-  margin: 29px;
-  padding: 10px 12px ;
+  display: inline; /* Ensures the label takes up the full width of its container */
+  margin: 10px ; /* Centers the label within the container */
+  padding: 10px 12px;
   cursor: pointer;
   background-color: #007bff;
   color: white;
@@ -148,9 +153,10 @@ h1{
   background-color: #0056b3;
   border-color: #0056b3;
 }
-#upload-model-files-button{
-  /* padding-right: 20px; */
-}
+
+
 /* .container + .container {
             margin: 20px; /* Adjust the value as needed */
         /* } */ 
+
+        
