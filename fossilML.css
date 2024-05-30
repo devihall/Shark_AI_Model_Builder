@@ -33,9 +33,9 @@ input::file-selector-button {
   color: white;
   padding:  0.5em 0.5em 0.5em 0.5em;
   margin-left: 75px;
-  border: thin solid dodgerblue;
+  border: thin solid  #0056b3;
   border-radius: 3px;
-  background: dodgerblue;
+  background:  #0056b3;
 }
 
 .custom-save-btn {
@@ -43,9 +43,9 @@ input::file-selector-button {
   color: white;
   padding: 4px 2px 4px 2px;
   margin-top: 16px;
-  border: thin solid dodgerblue;
+  border: thin solid  #0056b3;
   border-radius: 3px;
-  background: dodgerblue;
+  background:  #0056b3;
 }
 
 #textInput {
@@ -117,19 +117,19 @@ h1{
 
 .logo {
   max-width: 60px; /* Adjust size if needed */
-  margin-right: 20px; /* Add some spacing between logo and tabs */
+  margin-right: 40px; /* Add some spacing between logo and tabs */
 }
 
 .tab-navigation {
   display: flex;
-  padding-left: 130px;
+  padding-left: 358px;
 }
 
 .header-container {
   display: flex;
   justify-content: flex-start; /* Align items on opposite sides */
   align-items: center; /* Align items vertically */
-  padding: 10px 20px; /* Adjust padding as needed */
+  padding: 10px 10px 0px 0px; /* Adjust padding as needed */
 }
 .upload-buttons {
   margin-top: 0 !important; /* Override the inline margin-top */
@@ -159,4 +159,11 @@ h1{
             margin: 20px; /* Adjust the value as needed */
         /* } */ 
 
-        
+.btn{
+  background-color: #0056b3;
+  
+}
+
+.btn button:hover {
+  background-color: #ccc;
+}
