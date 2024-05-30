@@ -36,17 +36,24 @@
     <link rel="stylesheet" href="fossilML.css" />
   </head>
   <body>
+    <div class="row">
     <header>
       <div class="header-container">
-        <div class="logo-container">
+        <div class="col-lg-1 col-md-4 col-sm-4">
+          <div class="logo-container">
           <img
             src="22499 TESI_shark_logo_mark_4color_FNL.png"
             alt="Your Logo"
             class="logo"
           />
         </div>
-        <div><h1>Shark AI Model Builder</h1></div>
-        <div class="tab-navigation">
+        </div>
+        <div class="col-lg-7 col-md-4 col-sm-4">
+          <div ><h1>Shark AI Model Builder</h1></div>
+        </div>
+        
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="tab-navigation">
           <button class="tab-button active" onclick="openTab('training')">
             <span>Train</span>
             <i class="fas fa-arrow-right"></i>
@@ -62,8 +69,15 @@
             <i class="fas fa-arrow-right"></i>
           </button>
         </div>
+
+        </div>
+
+        
+
+
       </div>
     </header>
+    </div>
 
     <!-- content for Model Training Tab -->
     <div id="training" class="tab active">

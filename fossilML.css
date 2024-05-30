@@ -107,29 +107,33 @@ h2 {
 
 h1{
   font-family: "Comic Sans MS", Arial, sans-serif; /* Apply a professional font family */
-  padding-right: 20px;
+  padding-left: 0px;
 }
 
 .logo-container {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .logo {
   max-width: 60px; /* Adjust size if needed */
-  margin-right: 40px; /* Add some spacing between logo and tabs */
+  /* margin-right: 40px;  */
+  /* Add some spacing between logo and tabs */
 }
 
 .tab-navigation {
   display: flex;
-  padding-left: 358px;
+  /* padding-left: 358px; */
 }
 
 .header-container {
   display: flex;
-  justify-content: flex-start; /* Align items on opposite sides */
-  align-items: center; /* Align items vertically */
-  padding: 10px 10px 0px 0px; /* Adjust padding as needed */
+  justify-content: flex-start; 
+  /* Align items on opposite sides */
+  /* align-items: center;  */
+  /* Align items vertically */
+  /* padding: 10px 10px 0px 0px;  */
+  /* Adjust padding as needed */
 }
 .upload-buttons {
   margin-top: 0 !important; /* Override the inline margin-top */
