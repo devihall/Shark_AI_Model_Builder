@@ -175,12 +175,16 @@ async function training() {
 async function whileTraining() {
   console.log("model is training");
 
+  $("#exampleModalLong").modal("toggle");
+
   // Display "Model is training" message
   const trainingMessageContainer = document.getElementById("trainingMessage");
   trainingMessageContainer.innerHTML = `
         <div class="alert alert-info" role="alert">
             Model is done training. Check the Evaluate tabe for model performance.
         </div>`;
+
+      
 }
 
 // save function///
