@@ -69,6 +69,8 @@
     <div id="training" class="tab active">
       
       <div class="container-start">
+            <div id="iframeContainer"></div>
+
         <!-- <div class="row"> -->
           <!-- <div class="col-md-auto"> -->
 
@@ -91,17 +93,31 @@
   
 
 
-  <div class="col-lg-auto col-md-3 col-sm-4 upload-buttons" >
-    <div class="card" >
-      <input type="file" id="file-input4" multiple accept="image/*" onchange="handleFileInput('file-input4', 'category4', 'thumbnailContainer4')" style="display: none;" />
-      <label for="file-input4" class="model-upload">Upload Model Files</label>
+  <div class="col-lg-auto col-md-3 col-sm-4 upload-buttons " >
+    <div class="card mt-4" >
+      <input type="file" id="file-input4" multiple  onchange="save()" style="display: none;" />
+      <label for="file-input4" class="model-upload" >Upload Model Files</label>
     </div>
+    <!-- <div id="iframeContainer"></div> -->
+
+    <!-- <div class="card">
+      
+              <button id="saveBtn" type="button"  class="btn btn-primary btn-lg" onclick="save()"  > Dowload Model</button>
+            -->
+
+      <!-- <input type="file" id="file-input5" multiple accept="image/*" onchange="handleFileInput('file-input5', 'category5', 'thumbnailContainer5')" style="display: none;" />
+      <label for="file-input5" class="model-upload" onclick="save()">Download Model Files</label> -->
+    <!-- </div> -->
   </div>
 
   <div class="col-lg-auto col-md-1 col-sm-2 upload-buttons">
-    <div class="card">
-      <input type="file" id="file-input5" multiple accept="image/*" onchange="handleFileInput('file-input5', 'category5', 'thumbnailContainer5')" style="display: none;" />
-      <label for="file-input5" class="model-upload">Download Model Files</label>
+    <div class="card mt-4">
+      
+              <button id="saveBtn" type="button" class="model-upload" class="btn btn-primary btn-lg" onclick="save()"  > Dowload Model</button>
+           
+
+      <!-- <input type="file" id="file-input5" multiple accept="image/*" onchange="handleFileInput('file-input5', 'category5', 'thumbnailContainer5')" style="display: none;" />
+      <label for="file-input5" class="model-upload" onclick="save()">Download Model Files</label> -->
     </div>
   </div>
 </div>
@@ -109,7 +125,7 @@
 
 <!-- Instructions row -->
 <div class="row">
-  <div class="col-lg-9 col-md-6 col-sm-12 border p-3 wrapper">
+  <div class="col-lg-10 col-md-6 col-sm-12 border p-3 wrapper">
                 <!-- <div class="card">
               <div class="card-body">
                 <h5 class="card-title">
@@ -152,7 +168,7 @@
 
            <!-- start training button -->
           <div class="col">
-            <div class="container m-5">
+            <div class="container mt-5">
               <button id="startTrainingBtn" type="button"  class="btn btn-primary btn-lg" onclick="training()"  > Start Training</button>
             </div>
 
@@ -167,6 +183,7 @@
       <!-- training message -->
       <div id="home" class="tabcontent mt-3">
         <div id="trainingMessage"></div>
+                    <!-- <div id="iframeContainer"></div> -->
 
         <div class="row">
           <!-- <div class="col-lg-8 col-md-6 col-sm-12 border p-3 wrapper"> -->
@@ -304,7 +321,7 @@
           <div class="col-lg-12 col-md-6 col-sm-12 border p-3 wrapper">
 
             <!-- google form iframe container -->
-            <div id="iframeContainer"></div>
+            <!-- <div id="iframeContainer"></div> -->
           </div>
           
 

@@ -143,21 +143,20 @@ async function training() {
     .addEventListener("click", async function () {
       // document.getElementById("survey-container").style.display = "block";
       // function showIframe() {
-        console.log("show iframe function")
-        // Create iframe element
-        var iframe = document.createElement("iframe");
+      console.log("show iframe function");
+      // Create iframe element
+      var iframe = document.createElement("iframe");
 
-        // Set attributes
-        iframe.src = "https://example.com"; // Set the source URL of the iframe
-        iframe.width = "400"; // Set width
-        iframe.height = "200"; // Set height
-        iframe.frameBorder = "0"; // Remove border
+      // Set attributes
+      iframe.src = "https://docs.google.com/forms/d/e/1FAIpQLSeqTlGbIvw7StzDiFF1ZXIVxIBNQiocC5EM8MgVV6Rvismlow/viewform?embedded=true"; // Set the source URL of the iframe
+      iframe.width = "100%"; // Set width
+      iframe.height = "200"; // Set height
+      iframe.frameBorder = "0"; // Remove border
 
-        // Append iframe to container
-        var container = document.getElementById("iframeContainer");
-        container.appendChild(iframe);
+      // Append iframe to container
+      var container = document.getElementById("iframeContainer");
+      container.appendChild(iframe);
       // }
-
 
       // alert("Training started!");
       // Add your custom logic here
@@ -183,6 +182,23 @@ async function whileTraining() {
             Model is done training. Check the Evaluate tabe for model performance.
         </div>`;
 }
+
+// save function///
+function save() {
+  console.log("save")
+  myfeatureExtractor.save("Shark_AI_Model_Builder");
+
+}
+
+async function load() {
+  console.log("load");
+myfeatureExtractor.load();
+}
+
+
+
+
+
 
 // logic for classifying images
 ///////////////////////////////////

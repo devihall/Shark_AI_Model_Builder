@@ -31,8 +31,8 @@ input {
 input::file-selector-button {
   font-weight: bold;
   color: white;
-  padding: 0.5em;
-  margin-left: 13px;
+  padding:  0.5em 0.5em 0.5em 0.5em;
+  margin-left: 75px;
   border: thin solid dodgerblue;
   border-radius: 3px;
   background: dodgerblue;
@@ -75,7 +75,7 @@ input::file-selector-button {
   padding: 10px 10px 10px 20px;
   margin: 10px 0px 10px 0px;
   border: none;
-  background-color: #bad5f2;
+  background-color: #5ab2c3;
   cursor: pointer;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
@@ -86,8 +86,8 @@ input::file-selector-button {
   color: #333; /* Choose a text color */
 }
 .tab-navigation button.active {
-  background-color: #ffff;
-  border: solid rgba(0, 0, 0, 0.541);
+  background-color: #ffffffb2;
+  border: solid rgba(0, 0, 0, 0.293);
   color: black; /* Change text color for active tab */
   border-bottom: #f8f8f8;
 }
@@ -138,12 +138,12 @@ h1{
 
 .model-upload {
   display: inline; /* Ensures the label takes up the full width of its container */
-  margin: 10px ; /* Centers the label within the container */
+  font-size: 19px;
   padding: 10px 12px;
   cursor: pointer;
-  background-color: #007bff;
+  background-color: #6a9ab4;
   color: white;
-  border-radius: 4px;
+  border-radius: 8px;
   border: 1px solid #007bff;
   font-family: Arial, sans-serif;
   text-align: center;
